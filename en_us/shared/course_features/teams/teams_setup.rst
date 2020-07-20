@@ -62,7 +62,10 @@ includes team-set names and the maximum team size.
 .. note::  EdX recommends that you do not delete team-sets once your course is
    running. If you delete a team-set from the **Teams Configuration** policy key,
    that team-set is no longer visible in the LMS, and learners will not be able to leave
-   teams associated with the deleted team-set. (This isn't even true. They'll still show up on My Teams)
+   teams associated with the deleted team-set even though they will still appear in
+   their “My Teams” tab. Please delete learners from teams before deleting the
+   associated team-set from **Teams Configuration**.
+
 
 #. In Studio, from the **Settings** menu, select **Advanced Settings**,
    then locate the **Teams Configuration** policy key.
@@ -151,15 +154,16 @@ the team-set. The three team-set types are:
 Open team-sets are the least restrictive. Learners can freely join, leave, and create teams within an open team-set.
 All teams within an open team-set, as well as their membership information, are visible to anyone enrolled in the course.
 
-Private and Public Managed team-sets are referred to together as Managed. In Managed team-sets, users cannot create,
-join, or leave teams. The creation, deletion, and membership of teams in a Managed team-set is all controlled by course
-staff. Course staff can control team membership through the **Manage** tab on the **Teams** page. (The **Manage** tab 
-only appears when there is at least one Managed team-set defined for the course.)
+Private and Public Managed team-sets are referred to together as instructor-managed. In instructor-managed team-sets,
+users cannot create, join, or leave teams. The creation, deletion, and membership of teams in an instructor-managed
+team-set is all controlled by course staff. Course staff can control team membership through the **Manage** tab on
+the **Teams** page. (The **Manage** tab only appears when there is at least one instructor-managed team-set defined
+for the course.)
 
 The difference between Private and Public Managed team-sets is visibility. In a Public Managed team-set, while learners
 cannot create teams or control which team they are a member of, they can see every team in the team-set and their
 memberships. In a Private Managed team-set, on the other hand, a user can only see their own team. They cannot see that any other
-team in the team-set exists. Additionally, if a learner isn't in a team in a certain private team-set, they can't even
+team in the team-set exists. Additionally, if a learner isn't in a team in a certain private team-set, they can't
 see that the private team-set exists.
 
 If a team-set is specified in the Advanced Course Settings without a 'type', the team-set will default to Open.
@@ -182,7 +186,7 @@ Private Managed    private_managed              False                       Fals
 Create a Team
 ******************
 
-Although learners in your course may be able create their own teams, you can seed open
+Although learners in your course may be able create their own teams in open team-sets, you can seed open
 team-sets with a few teams to give learners some ideas for their own teams.
 
 Course team members who have the **Staff**, **Admin**, **Discussion Admin**,
