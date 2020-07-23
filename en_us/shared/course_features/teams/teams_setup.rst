@@ -102,7 +102,7 @@ includes team-set names and the maximum team size.
     - For each team-set, provide a description, name, and ID as shown
       in the example.
     
-    - You may also optionally provide a ``"type"`` for each team-set,
+    - You may optionally provide a ``"type"`` for each team-set,
       which sets the visibility and access for teams. Different ``"type"`` values are
       explained in the next section, :ref:`Team-set Types`
 
