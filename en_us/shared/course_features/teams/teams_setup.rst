@@ -14,6 +14,7 @@ For information about managing teams in your courses, see the following topics.
 
 * :ref:`Teams Discussions`
 * :ref:`CA Learner Experience of Teams`
+* :ref:`Managing Teams via CSV Upload`
 
 
 .. _CA_Teams_Overview:
@@ -28,6 +29,15 @@ teams in your course by defining "team-sets", groups of teams based around a spe
 topic or assignment. Each learner can belong to one team per team-set, so you can set
 up a team-set where learners can join a team to discuss a certain course topic,
 or set up a team-set where learners can join a team to work on a group assignment.
+
+You can also configure "instructor-managed" team-sets. This is a setting which allows
+course staff much greater control of course teams.  In instructor-managed team-sets,
+instructors create and control the membership of all teams. More information on
+instructor-managed team-sets and instructions on how to set them up are contained later
+in this document, in the section :ref:`Team-set Types`. To make controlling course team
+memberships across teams and team-sets easier, there is a CSV upload tool that allows
+course staff to add and remove learners from teams across team-sets in bulk. More
+information on this tool can be found in the section :ref:`Managing Teams via CSV Upload`
 
 When a team is created, it is given an name and description to identify it. 
 A primary communication language can optionally be specified
@@ -81,13 +91,32 @@ includes team-set names and the maximum team size.
 
    ``"max_team_size": 5``
 
-   Max Team Size should 
+   Course Max Team Size has a hard limit and cannot exceed 500.
+   That said, in practice, teams should rarely have many learners in them at all.
+   If you have a use case where a large number of users need to be in a team,
+   consider using discussions rather than teams. 
 
 #. To specify team-sets within which teams can be created, add entries under
-   ``"team_sets"``. For each team-set, provide a description, name, and ID as shown
-   in the example. You may also optionally provide a ``"type"`` for each team-set,
-   which sets the visibility and access for teams. Different ``"type"`` values are
-   explained in the next section.
+   ``"team_sets"``. 
+   
+    - For each team-set, provide a description, name, and ID as shown
+      in the example.
+    
+    - You may also optionally provide a ``"type"`` for each team-set,
+      which sets the visibility and access for teams. Different ``"type"`` values are
+      explained in the next section, :ref:`Team-set Types`
+
+    - Team-sets may also specify an optional ``"max_team_size"`` setting.
+      This setting will override the ``max_team_size`` set on the course as a whole.
+
+        + Example: The course ``max_team_size`` is fairly high to allow for larger
+          teams. If for one assignment you would like to have students work in
+          smaller groups,  you can set the ``max_team_size`` on the team-set for
+          that assignment to a smaller value and override the course's setting for that
+          team-set
+
+        + The opposite of this example works as well, you can specify a value either
+          smaller or larger than the course's value
 
    Make sure that you enclose all of the sets of team-set values within a set of
    square brackets, with a comma after the closing square bracket.
@@ -110,7 +139,8 @@ includes team-set names and the maximum team size.
             "name": "Sustainability in Corporations",
             "description": "Description for Sustainability in Corporations",
             "id": "Sustain_Corporations",
-            "type": "open"
+            "type": "open",
+            "max_team_size": 10
         },
         {
             "name": "Water Conservation Projects",
@@ -188,6 +218,9 @@ Create a Team
 
 Although learners in your course may be able create their own teams in open team-sets, you can seed open
 team-sets with a few teams to give learners some ideas for their own teams.
+
+For instructor-managed team-sets, you can also create teams in bulk, using the CSV upload tool.
+See :ref:`Managing Teams via CSV Upload`
 
 Course team members who have the **Staff**, **Admin**, **Discussion Admin**,
 or **Discussion Moderator** role can create new teams within team-sets.
@@ -294,6 +327,9 @@ from a team and make the spot on the team available to other learners if, for
 example, a learner joined a team but is not participating, or if a learner has
 unenrolled from the course without leaving the team.
 
+For instructor-managed team-sets, you can also remove learners from teams using
+the CSV upload tool. See :ref:`Managing Teams via CSV Upload`
+
 .. note:: Before making significant changes to a team, communicate with team
    members so that they are aware of the changes you will make, and their
    impacts.
@@ -370,9 +406,9 @@ To delete a team, follow these steps.
    list within its team-set. Learners who were previously members of this team no
    longer belong to a team.
 
-******************
-Managing Teams
-******************
+****************************************
+Managing Teams via CSV Upload
+****************************************
 Initial Setup
 -------------
 There are cases where an instructor may want to manage team membership within a course 
