@@ -124,8 +124,9 @@ includes team-set names and the maximum team size.
    .. note:: If you create more than one team-set, make sure that you add a comma
       after the closing curly brace of each team-set that has another team-set
       following it. The syntax that you use must match the example syntax
-      exactly. Missing or incorrect indentation, curly braces, brackets, or
-      punctuation marks cause errors.
+      exactly, as missing or incorrect indentation, curly braces, brackets,
+      or punctuation marks will cause errors.
+
 
    .. note:: For team-set IDs, you can use only alphanumeric characters and the
       underscore, hyphen, and period characters.
